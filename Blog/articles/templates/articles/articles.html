@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block titile %}Статей.NET{% endblock %}
+
+{% block content %}
+<!-- <div class="articles">
+  {% for post in posts %}
+    <article>
+      <h3><a href="http://127.0.0.1:8000/post/{{ post.id }}">{{ post.title }}</a> </h3>
+    </article>
+    <hr>
+  {% endfor %}
+</div>
+-->
+
+    <div class="container-fluid">
+        <main class="tm-main">
+            <div class="row tm-row">
+                {% for post in posts %}
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="http://127.0.0.1:8000/post/{{ post.id }}" class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+                        </div>
+                        <span class="position-absolute tm-new-badge">New</span>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{ post.title }}</h2>
+                    </a>
+                    <p class="tm-pt-30">
+                        {{ post.text }}
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">{{ post.category }}</span>
+                        <span class="tm-color-primary">{{ post.post_data }}</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>0 comments</span>
+                        <span>by {{ post.author }}</span>
+                    </div>
+                </article>
+                {% endfor %}
+        </main>
+    </div>
+{% endblock %}

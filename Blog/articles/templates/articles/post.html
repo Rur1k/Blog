@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+      <main class="tm-main">
+           <div class="row tm-row">
+                <div class="col-lg-8 tm-post-col">
+                    <div class="tm-post-full">
+                        <div class="mb-4">
+                            <h2 class="pt-2 tm-color-primary tm-post-title">{{ post.title }}</h2>
+                            <p class="tm-mb-40">Дата публикации: {{ post.post_data }} Автор: {{ post.author }}</p>
+                            <p>{{ post.text }}</p>
+                            <span class="d-block text-right tm-color-primary">{{ post.category }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </main>
+    </div>
+{% endblock %}
