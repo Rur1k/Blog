@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/templatemo-xtra-blog.css' %}" rel="stylesheet">
+    <link href="{% static 'css/mainstyle.css' %}" rel="stylesheet">
 </head>
 <body>
+<!--
     <header class="tm-header" id="tm-header">
         <div class="tm-header-wrapper">
             <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
@@ -21,11 +22,11 @@
             </div>
             <nav class="tm-nav" id="tm-nav">
                 <ul>
-                    <li class="tm-nav-item active"><a href="http://127.0.0.1:8000/" class="tm-nav-link">
+                    <li class="tm-nav-item active"><a href="{% url 'articles' %}" class="tm-nav-link">
                         <i class="fas fa-home"></i>
                         Главная
                     </a></li>
-                    <li class="tm-nav-item"><a href="http://127.0.0.1:8000/" class="tm-nav-link">
+                    <li class="tm-nav-item"><a href="{% url 'articles' %}" class="tm-nav-link">
                         <i class="fas fa-pen"></i>
                         Написать статью
                     </a></li>
@@ -33,9 +34,34 @@
             </nav>
         </div>
     </header>
+-->
+ <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <h1>Статей.NET</h1>
+      </a>
 
-    {% block content %}
-    {% endblock %}
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Главная</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Новые</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Интересные</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Добавить статью</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark"></a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Вход</button>
+        <button type="button" class="btn btn-primary">Регистрация</button>
+      </div>
+    </header>
+  </div>
+
+<div class="container">
+        <main class="tm-main">
+            {% block content %}
+            {% endblock %}
+        </main>
+</div>
 
 </body>
 </html>
