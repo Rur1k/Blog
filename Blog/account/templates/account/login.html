@@ -19,8 +19,8 @@
         <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="hidden" name="next" value="{{ next }}">
-            <p><input type="submit" value="Войти"></p>
+            <input type="hidden" name="next" value="{% url 'articles' %}">
+            <p><input type="submit" class="btn btn-outline-primary me-2" value="Войти"></p>
         </form>
     </div>
 {% endblock %}

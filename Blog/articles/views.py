@@ -12,3 +12,6 @@ def post_page(request, post_id):
         'post': Post.objects.get(id=post_id)
     }
     return render(request, "articles/post.html", context)
+
+def new_post(request):
+    return render(request, "articles/new_post.html")

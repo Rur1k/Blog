@@ -17,7 +17,7 @@ def user_login(request):
                 else:
                     return HttpResponse('Пользователь отключен')
             else:
-                return HttpResponse('Пользователь не найден')
+                return render(request, 'account/login_error.html')
     else:
             form = LoginForm()
     return render(request, 'account/login.html', {'form': form})

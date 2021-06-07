@@ -46,7 +46,7 @@
         <li><a href="#" class="nav-link px-2 link-dark">Новые</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Интересные</a></li>
           {% if request.user.is_authenticated %}
-            <li><a href="#" class="nav-link px-2 link-dark">Добавить статью</a></li>
+            <li><a href="{% url 'new_post' %}" class="nav-link px-2 link-dark">Добавить статью</a></li>
           {% endif %}
         <li><a href="#" class="nav-link px-2 link-dark"></a></li>
       </ul>

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Не верные данные{% endblock %}
+
+{% block content %}
+  <div class = 'login_error-form'>
+    <h1>Не доступно!</h1>
+    <p>Неверно введенно имя пользователи или пароль. Попробуйте <a href="{% url 'login' %}">снова.</a></p>
+  </div>
+{% endblock %}
