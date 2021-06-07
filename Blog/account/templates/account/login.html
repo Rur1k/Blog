@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Авторизация{% endblock %}
+
+{% block content %}
+    <h1>Авторизация</h1>
+    {% if form.errors %}
+        <p>
+            Ваше имя пользователя и пароль не совпадают.
+            Пожалуйста, попробуйте еще раз.
+        </p>
+    {% else %}
+        <p>
+            Пожуйста, введите данные для авторизации:
+        </p>
+    {% endif %}
+
+    <div class = 'login-form'>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}">
+            <p><input type="submit" value="Войти"></p>
+        </form>
+    </div>
+{% endblock %}

@@ -42,16 +42,22 @@
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Главная</a></li>
+        <li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Новые</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Интересные</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Добавить статью</a></li>
+          {% if request.user.is_authenticated %}
+            <li><a href="#" class="nav-link px-2 link-dark">Добавить статью</a></li>
+          {% endif %}
         <li><a href="#" class="nav-link px-2 link-dark"></a></li>
       </ul>
 
       <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Вход</button>
-        <button type="button" class="btn btn-primary">Регистрация</button>
+          {% if request.user.is_authenticated %}
+            {{ request.user.first_name }} <button type="button" class="btn btn-primary" onclick="location.href='{% url 'logout' %}'">Выход</button>
+          {% else %}
+            <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='{% url 'login' %}'">Вход</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'register' %}'">Регистрация</button>
+          {% endif %}
       </div>
     </header>
   </div>

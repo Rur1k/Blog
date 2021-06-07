@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Добпро пожаловать!{% endblock %}
+
+{% block content %}
+  <div class = 'register_done-form'>
+    <h1>Добро пожаловать, {{ new_user.first_name }}</h1>
+    <p>Аккаунт успешно создан, <a href="{% url 'login' %}">войти.</a></p>
+  </div>
+{% endblock %}
