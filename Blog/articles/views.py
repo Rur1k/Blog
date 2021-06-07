@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
+from .forms import PostForm
 
 def article_page(request):
     context = {
@@ -14,4 +15,18 @@ def post_page(request, post_id):
     return render(request, "articles/post.html", context)
 
 def new_post(request):
-    return render(request, "articles/new_post.html")
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            save_author = form.save(commit=False)
+            save_author.author = request.user
+            save_author.save()
+            return redirect('articles')
+
+    form = PostForm()
+
+    data = {
+        'form': form,
+    }
+
+    return render(request, "articles/new_post.html", data)
