@@ -16,9 +16,13 @@ class Post(models.Model):
     text = models.TextField('Текст статьи')
     post_data = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    status = models.CharField('Статус публикации статьи', max_length=1, null=True)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return f'/edit/{self.id}'
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -27,3 +31,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.author_name
+
+

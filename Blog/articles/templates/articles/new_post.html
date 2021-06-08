@@ -5,17 +5,21 @@
 {% block content %}
 <div class="new-post">
   {% if request.user.is_authenticated %}
-  <h1>Создание статьи:</h1>
+  <h1>Форма статьи:</h1>
   <form method="POST">
+    <div class="visiblestatus">{{ form.status }}</div>
     {% csrf_token %}
     {{ form.title }}<br>
     {{ form.announcement_post }}<br>
     {{ form.text }}<br>
     {{ form.category }}<br>
+    {% if request.user.is_superuser %}
+      {{ form.status }}<br>
+    {% endif %}
     <input type="submit" class="btn btn-outline-primary me-2" value="Опубликовать">
   </form>
   {% else %}
-  <p>Для написания стать надо <a href="{% url 'login' %}">авторизоватся.</a></p>
+  <p>Для написания статьи надо <a href="{% url 'login' %}">авторизоваться.</a></p>
   {% endif %}
 </div>
 {% endblock %}

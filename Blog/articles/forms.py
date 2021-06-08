@@ -5,7 +5,7 @@ from .models import Post
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'announcement_post', 'text', 'category']
+        fields = ['title', 'announcement_post', 'text', 'category', 'status']
 
         widgets = {
             'title': TextInput(attrs={
@@ -23,6 +23,11 @@ class PostForm(ModelForm):
             'category': Select(attrs={
                 'class': 'form-control',
                 'placeholder': 'Категория'
+            }),
+            'status': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Статус статьи',
+                'value': '0'
             }),
         }
 

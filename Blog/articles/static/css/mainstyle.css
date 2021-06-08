@@ -10,6 +10,10 @@ body {
     overflow-x: hidden;
 }
 
+.visiblestatus {
+    display: none;
+}
+
 p, span { color: #999; }
 hr { 
     border-top-color: #CCC; 
@@ -19,7 +23,6 @@ hr {
 .form-control::-webkit-input-placeholder { color: #999; }  
 .form-control:-ms-input-placeholder { color: #999; }  
 .form-control::placeholder { color: #999; }
-
 
 .tm-main {
     margin: 0px;

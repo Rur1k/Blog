@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Cтатья принята{% endblock %}
+
+{% block content %}
+<p>Статья отравлена на модерацию. После проверки администрацией она будет добавлена в ленту.
+        {% if request.user.is_superuser %}
+        <a href="{% url 'adminpanel' %}" class="link-dark"> Вернуться в панель управления.</a>
+    {% else %}
+        <a href="{% url 'userpanel' %}" class="link-dark">Вернуться в панель управления.</a>
+    {% endif %}
+</p>
+{% endblock %}
