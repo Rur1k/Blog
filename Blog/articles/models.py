@@ -8,6 +8,14 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
+class Status(models.Model):
+    id = models.AutoField(unique=True, primary_key=True)
+    name = models.CharField('Статус статьи', max_length=16)
+
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     title = models.CharField('Заголовок статьи', max_length=64)
@@ -16,7 +24,7 @@ class Post(models.Model):
     text = models.TextField('Текст статьи')
     post_data = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    status = models.CharField('Статус публикации статьи', max_length=1, null=True)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True, default=1)
 
     def __str__(self):
         return self.title
@@ -31,5 +39,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.author_name
+
+
 
 

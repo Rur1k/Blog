@@ -12,18 +12,18 @@ class PostUpdateView(UpdateView):
 
 class PostDeleteView(DeleteView):
     model = Post
-    success_url = '/adminpanel/'
+    success_url = '/deletedone/'
     template_name = 'articles/post_delete.html'
 
 def article_page(request):
     context = {
-        'posts': Post.objects.filter(status=1).order_by('-post_data')
+        'posts': Post.objects.filter(status=2).order_by('-post_data')
     }
     return render(request, "articles/articles.html", context)
 
 def new_article_page(request):
     context = {
-        'posts': Post.objects.filter(status=1).order_by('-post_data')[:2]
+        'posts': Post.objects.filter(status=2).order_by('-post_data')[:2]
     }
     return render(request, "articles/newarticles.html", context)
 
@@ -66,3 +66,7 @@ def new_post_done(request):
 
 def edit_done(request):
     return render(request, 'articles/editdone.html')
+
+def delete_done(request):
+    return render(request, 'articles/deletedone.html')
+

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Админка{% endblock %}
+{% block title %}Управление{% endblock %}
 
 {% block content %}
     {% if request.user.is_authenticated %}
@@ -11,7 +11,7 @@
 
         <h2>Мои статьи:</h2>
 
-        <div class="row tm-row">
+        <div class="row">
                 {% for post in user_posts %}
                 <article class="col-12 col-md-6 tm-post">
                     <hr class="tm-hr-primary">

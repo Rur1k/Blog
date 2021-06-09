@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Cтатья удалена{% endblock %}
+
+{% block content %}
+<p>Статья успешно удалена, вернуться в
+    {% if request.user.is_superuser %}
+        <a href="{% url 'adminpanel' %}" class="link-dark">панель управления.</a>
+    {% else %}
+        <a href="{% url 'userpanel' %}" class="link-dark">панель управления.</a>
+    {% endif %}
+</p>
+{% endblock %}

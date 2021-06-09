@@ -11,7 +11,7 @@
 
         <h2>Все статьи:</h2>
 
-        <div class="row tm-row">
+        <div class="row">
                 {% for post in all_posts %}
                 <article class="col-12 col-md-6 tm-post">
                     <hr class="tm-hr-primary">
@@ -36,6 +36,6 @@
                 {% endfor %}
     </div>
     {% else %}
-    <p>Вы не являетесь администратором, войдите с логина администратора.</p>
+    <p>Вы не являетесь администратором, войдите с логина администратора. </p>
     {% endif %}
 {% endblock %}

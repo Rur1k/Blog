@@ -14,4 +14,5 @@ urlpatterns = [
     path('delete/<int:pk>', views.PostDeleteView.as_view(), name='delete'),
     path('newpostdone/', views.new_post_done, name='newpostdone'),
     path('editdone/', views.edit_done, name='editdone'),
+    path('deletedone/', views.delete_done, name='deletedone'),
 ]

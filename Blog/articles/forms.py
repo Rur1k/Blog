@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.forms import ModelForm, TextInput, Textarea, Select
-from .models import Post
+from .models import Post, Category
 
 class PostForm(ModelForm):
     class Meta:
@@ -22,12 +22,11 @@ class PostForm(ModelForm):
             }),
             'category': Select(attrs={
                 'class': 'form-control',
-                'placeholder': 'Категория'
+                'placeholder': 'Категория',
             }),
-            'status': TextInput(attrs={
+            'status': Select(attrs={
                 'class': 'form-control',
                 'placeholder': 'Статус статьи',
-                'value': '0'
+                'value': 1,
             }),
         }
-

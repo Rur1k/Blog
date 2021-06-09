@@ -7,13 +7,15 @@
   {% if request.user.is_authenticated %}
   <h1>Форма статьи:</h1>
   <form method="POST">
-    <div class="visiblestatus">{{ form.status }}</div>
+   <div class="visiblestatus">{{ form.status }}</div>
     {% csrf_token %}
     {{ form.title }}<br>
     {{ form.announcement_post }}<br>
     {{ form.text }}<br>
+      <h4>Категория:</h4>
     {{ form.category }}<br>
     {% if request.user.is_superuser %}
+      <h4>Статус:</h4>
       {{ form.status }}<br>
     {% endif %}
     <input type="submit" class="btn btn-outline-primary me-2" value="Опубликовать">
